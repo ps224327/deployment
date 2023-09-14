@@ -13,7 +13,18 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        // Replace this with your own assertions or test logic
+        // Existing test logic
+        $this->assertTrue(true);
+    }
+
+    /**
+     * Another test method.
+     *
+     * @return void
+     */
+    public function testAnotherMethod()
+    {
+        // New test logic
         $this->assertTrue(true);
     }
 }
