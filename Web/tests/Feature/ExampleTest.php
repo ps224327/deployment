@@ -1,30 +1,19 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
-use PHPUnit\Framework\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+use App\Models\User;
+use Laravel\Sanctum\Sanctum;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
     public function testBasicTest()
     {
-        // Existing test logic
-        $this->assertTrue(true);
-    }
+        $response = $this->get('/'); // Replace '/' with the route you want to test.
 
-    /**
-     * Another test method.
-     *
-     * @return void
-     */
-    public function testAnotherMethod()
-    {
-        // New test logic
-        $this->assertTrue(true);
+        $response->assertStatus(200); // Ensure the response status code is 200 (OK).
     }
 }
