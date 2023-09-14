@@ -10,10 +10,10 @@ class ExampleTest extends TestCase
     /**
      * A basic test example.
      */
-    public function test_the_application_returns_a_successful_response()
+    public function testBasicTest()
     {
-        $response = $this->get('/');
+        $response = $this->get('/'); // Replace '/' with the route you want to test.
 
-        $response->assertStatus(200);
+        $response->assertStatus(200); // Ensure the response status code is 200 (OK).
     }
 }
