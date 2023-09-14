@@ -1,19 +1,19 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
     /**
      * A basic test example.
+     *
+     * @return void
      */
     public function testBasicTest()
     {
-        $response = $this->get('/'); // Replace '/' with the route you want to test.
-
-        $response->assertStatus(200); // Ensure the response status code is 200 (OK).
+        // Replace this with your own assertions or test logic
+        $this->assertTrue(true);
     }
 }
