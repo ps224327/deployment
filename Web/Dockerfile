@@ -8,8 +8,13 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
-    libzip-dev \
-    && docker-php-ext-install zip pdo pdo_mysql
+    libzip-dev
+
+# Install Composer globally
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install PHP extensions
+RUN docker-php-ext-install zip pdo pdo_mysql
 
 # Copy composer.lock and composer.json to install dependencies
 COPY composer.lock composer.json /app/
@@ -20,6 +25,6 @@ RUN composer install
 # Copy the rest of the application code
 COPY . /app/
 
-# Expose port 9000 and start PHP-FPM
-EXPOSE 9000
+# Expose port 8000 and start PHP-FPM
+EXPOSE 8000
 CMD ["php-fpm"]
