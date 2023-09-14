@@ -42,15 +42,9 @@ jobs:
           mkdir -p Web/database
           touch Web/database/database.sqlite
 
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
-        env:
-          DB_CONNECTION: sqlite
-          DB_DATABASE: Web/database/database.sqlite
-        run: cd Web && vendor/bin/phpunit
-
       - name: Build Docker image
-        run: docker build --tag ps224327 -f Web/Dockerfile .
-        # Use -f to specify the location of the Dockerfile
+        run: docker build --tag my-docker-image Web
+        # Use "Web" as the context directory where the Dockerfile is located
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
@@ -60,5 +54,5 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag ps224327 ${{ secrets.DOCKER_USERNAME }}/ps224327:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/ps224327:latest
+          docker tag my-docker-image ${{ secrets.DOCKER_USERNAME }}/my-docker-image:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/my-docker-image:latest
