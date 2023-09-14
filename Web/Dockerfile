@@ -16,13 +16,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install PHP extensions
 RUN docker-php-ext-install zip pdo pdo_mysql
 
-# Copy composer.lock and composer.json to install dependencies
-COPY composer.lock composer.json /app/
-
-# Install PHP dependencies using Composer
-RUN composer install
-
-# Copy the rest of the application code
+# Copy the entire application code into the image
 COPY . /app/
 
 # Expose port 8000 and start PHP-FPM
