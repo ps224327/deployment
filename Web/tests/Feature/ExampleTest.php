@@ -2,18 +2,18 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+// use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Models\User;
-use Laravel\Sanctum\Sanctum;
 
 class ExampleTest extends TestCase
 {
-    public function testBasicTest()
+    /**
+     * A basic test example.
+     */
+    public function test_the_application_returns_a_successful_response(): void
     {
-        $response = $this->get('/'); // Replace '/' with the route you want to test.
+        $response = $this->get('/');
 
-        $response->assertStatus(200); // Ensure the response status code is 200 (OK).
+        $response->assertStatus(200);
     }
 }
